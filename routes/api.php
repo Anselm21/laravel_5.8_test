@@ -2,17 +2,16 @@
 
 use Illuminate\Http\Request;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
+Route::get('users', 'UserController@index');
+Route::get('users/{id}', 'UserController@show');
+Route::post('users', 'UserController@store');
+Route::put('users/{id}', 'UserController@update');
+Route::delete('users/delete/{id}', 'UserController@destroy');
+Route::delete('users/remove_from_team', 'UserController@remove_from_team');
+Route::post('users/add_to_team', 'UserController@add_to_team');
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('teams', 'TeamController@index');
+Route::get('teams/{id}', 'TeamController@show');
+Route::post('teams', 'TeamController@store');
+Route::put('teams/{id}', 'TeamController@update');
+Route::delete('teams/{id}', 'TeamController@destroy');
