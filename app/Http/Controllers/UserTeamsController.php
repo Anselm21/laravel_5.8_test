@@ -28,7 +28,7 @@ class UserTeamsController extends Controller
         $userTeam = UserTeam::where('user_id', $params['user_id'])->where('team_id', $params['team_id'])->firstOrFail();
         $userTeam->delete();
 
-        return 204;
+        return 200;
     }
 
 }

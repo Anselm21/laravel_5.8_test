@@ -62,6 +62,6 @@ class TeamController extends Controller
         $team = Team::findOrFail($id);
         $team->delete();
 
-        return 204;
+        return 200;
     }
 }

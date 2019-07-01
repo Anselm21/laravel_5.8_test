@@ -62,7 +62,7 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         $user->delete();
 
-        return 204;
+        return 200;
     }
 
 }
