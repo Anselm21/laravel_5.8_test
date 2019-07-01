@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\UserRequest;
 use App\User;
 use App\UserTeam;
 
@@ -23,7 +23,7 @@ class UserController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
         return User::create($request->all());
     }
@@ -44,7 +44,7 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      */
-    public function update(Request $request, $id)
+    public function update(UserRequest $request, $id)
     {
         $user = User::findOrFail($id);
         $user->update($request->all());
@@ -61,20 +61,6 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
         $user->delete();
-
-        return 204;
-    }
-
-    public function add_to_team(Request $request)
-    {
-        return UserTeam::create($request->all());
-    }
-
-    public function remove_from_team(Request $request)
-    {
-        $params = $request->all();
-        $userTeam = UserTeam::where('user_id', $params['user_id'])->where('team_id', $params['team_id'])->firstOrFail();
-        $userTeam->delete();
 
         return 204;
     }

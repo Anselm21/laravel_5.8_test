@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\TeamsRequest;
 use App\Team;
 
 class TeamController extends Controller
@@ -22,7 +22,7 @@ class TeamController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      */
-    public function store(Request $request)
+    public function store(TeamsRequest $request)
     {
         return Team::create($request->all());
     }
@@ -44,7 +44,7 @@ class TeamController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      */
-    public function update(Request $request, $id)
+    public function update(TeamsRequest $request, $id)
     {
         $team = Team::findOrFail($id);
         $team->update($request->all());

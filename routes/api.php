@@ -7,8 +7,8 @@ Route::get('users/{id}', 'UserController@show');
 Route::post('users', 'UserController@store');
 Route::put('users/{id}', 'UserController@update');
 Route::delete('users/delete/{id}', 'UserController@destroy');
-Route::delete('users/remove_from_team', 'UserController@remove_from_team');
-Route::post('users/add_to_team', 'UserController@add_to_team');
+Route::delete('users/remove_from_team', 'UserTeamsController@remove_from_team');
+Route::post('users/add_to_team', 'UserTeamsController@add_to_team');
 
 Route::get('teams', 'TeamController@index');
 Route::get('teams/{id}', 'TeamController@show');
